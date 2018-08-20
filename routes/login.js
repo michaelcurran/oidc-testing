@@ -54,7 +54,7 @@ router.post("/", (req, res, next) => {
           .query({ state: "abcdefg1234567890" })
           .query({ nonce: "1234567890abcdefg" })
           .query({ sessionToken: resp.body.sessionToken })
-          .query({ scope: "openid email profile avatar offline_access" })
+          .query({ scope: "openid email profile offline_access" })
           .then(resp => {
             const text = JSON.parse(resp.text); 
             res.cookie('access_token', text.access_token, {maxAge: 90000000, httpOnly: true, secure: false, overwrite: true});
