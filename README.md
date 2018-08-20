@@ -1,6 +1,6 @@
 # oidc-testing
 
-This functions basically as a PoC and simple testing app for OIDC auth flows with Okta.  I purposely made calls directly to the Okta API endpoints instead of using a library to handle these things for me.  
+This functions basically as a PoC and simple testing app for OIDC auth flows with Okta.  I purposely made calls directly to the Okta API endpoints instead of using a library to handle these things for me.  It also handles refresh tokens.
 
 ## Install
 
