@@ -52,6 +52,12 @@ router.get("/", (req, res, next) => {
           .query({ refresh_token: cookies.refresh_token })
           .then(resp => {
             const id = jwtDecode(cookies.id_token);
+            const text = JSON.parse(resp.text);
+
+            res.cookie('access_token', text.access_token, {maxAge: 90000000, httpOnly: true, secure: false, overwrite: true});
+            res.cookie('id_token', text.id_token, {maxAge: 90000000, httpOnly: true, secure: false, overwrite: true});
+            res.cookie('expires_in', text.expires_in, {maxAge: 90000000, httpOnly: true, secure: false, overwrite: true});
+
             res.render("index", {
               title: "Simple OIDC Authentication",
               user: id.name
