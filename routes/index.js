@@ -48,7 +48,7 @@ router.get("/", (req, res, next) => {
           .query({ client_id: clientId })
           .query({ client_secret: clientSecret })
           .query({ redirect_uri: redirectUri })
-          .query({ scope: "openid email profile avatar offline_access" })
+          .query({ scope: "openid email profile offline_access" })
           .query({ refresh_token: cookies.refresh_token })
           .then(resp => {
             const id = jwtDecode(cookies.id_token);
